@@ -16,10 +16,23 @@ class TimetableController extends Controller
      */
     public function index()
     {
-        return view('timetable.timetable', [
-            'timetable' => Timetable::orderBy('day')->paginate(5),
-            'title' => 'Timetable'
-        ]);
+        if (auth()->user()->role == 'Admin') {
+            return view('timetable.timetable', [
+                'timetable' => Timetable::orderBy('day')->paginate(5),
+                'title' => 'Timetable'
+            ]);
+        } else if (auth()->user()->role == 'Student') {
+            return view('timetable.timetable', [
+                'timetable' => Timetable::join('school_classes', 'school_classes.id', '=', 'timetables.school_class_id')
+                    ->where('school_classes.class_name', auth()->user()->school_class)->paginate(5),
+                'title' => 'Timetable Student'
+            ]);
+        } else {
+            return view('timetable.timetable', [
+                'timetable' => Timetable::orderBy('day')->paginate(5),
+                'title' => 'Timetable Teacher'
+            ]);
+        }
     }
 
     /**
