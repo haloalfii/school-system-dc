@@ -81,6 +81,7 @@
 
                                 <div class="form-group">
                                     <select class="form-control" name="school_class">
+                                        <option value="">-- Select Classes --</option>
                                         @foreach ($class as $item)
                                             @if (old('school_class') == $item->class_name)
                                                 <option value="{{ $item->class_name }}" selected>
@@ -98,6 +99,8 @@
                                 <div class="form-group">
                                     <input type="file" name="image" class="" placeholder="Foto">
                                 </div>
+
+                                <input type="hidden" name="role" id="role" value="student">
 
                                 <button class="btn btn-primary btn-user btn-block">Register</button>
                             </form>

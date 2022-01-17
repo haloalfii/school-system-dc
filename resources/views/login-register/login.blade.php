@@ -51,12 +51,11 @@
                                     <form class="user" action="/login" method="POST">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="number_id"
-                                                name="number_id" placeholder="Enter Number...">
+                                            <input type="text" class="form-control" id="number_id" name="number_id"
+                                                placeholder="Enter Number...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" name="password"
-                                                class="form-control form-control-user" id="password"
+                                            <input type="password" name="password" class="form-control" id="password"
                                                 placeholder="Password">
                                         </div>
 

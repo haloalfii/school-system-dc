@@ -19,9 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('number_id')->unique();
             $table->string('email')->unique();
             $table->string('image');
-            $table->string('school_class');
+            $table->string('school_class')->nullable();
             $table->string('password');
-            $table->enum('role', ['Admin', 'Student', 'Teacher'])->default('Student');
+            $table->enum('role', ['Admin', 'Student', 'Teacher']);
             $table->rememberToken();
             $table->timestamps();
         });
