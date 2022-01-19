@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SchoolClass;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class StudentController extends Controller
 {
@@ -119,5 +120,13 @@ class StudentController extends Controller
     {
         Student::destroy($student->id);
         return redirect('/student')->with('success', 'Student has been deleted!');
+    }
+
+    public function export_pdf()
+    {
+        $student = Student::all();
+
+        $pdf = PDF::loadview('student.export', ['student' => $student]);
+        return $pdf->download('Student-Data.pdf');
     }
 }

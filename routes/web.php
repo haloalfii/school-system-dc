@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CourseController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
@@ -34,6 +33,9 @@ Route::get('/', function () {
 Route::get('/form', function () {
     return view('template.form');
 });
+
+// Export
+Route::get('/student/cetak', [StudentController::class, 'export_pdf']);
 
 Route::resource('/student', StudentController::class)->middleware('auth');
 Route::resource('/teacher', TeacherController::class)->middleware('auth');

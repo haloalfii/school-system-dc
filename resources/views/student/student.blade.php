@@ -13,6 +13,7 @@
         </div>
         <div class="card-body">
             <a href="/student/create" class="btn btn-primary mb-3">Add Student</a>
+            <a href="/student/cetak" class="btn btn-warning mb-3">Export Data</a>
             <div class="table-responsive">
                 <table class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
